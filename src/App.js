@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import SearchPage from "./pages/search-page/SearchPage";
+import ShowPage from "./pages/show-page/ShowPage";
+import { CollectionProvider } from "./collection.context.jsx";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CollectionProvider>
+      <div className="App mt-4">
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<SearchPage />} />
+            <Route path="/show" element={<ShowPage />} />
+          </Routes>
+        </div>
+      </div>
+    </CollectionProvider>
   );
 }
 
